@@ -51,7 +51,7 @@ public class Player_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		GetComponent<Rigidbody2D> ().gravityScale = .5f;
+		GetComponent<Rigidbody2D> ().gravityScale = 3f;
 		camcam = GameObject.Find ("Main_Camera(1)");
 		//body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
         curHealth = maxHealth;
@@ -254,10 +254,11 @@ public class Player_Controller : MonoBehaviour {
 
         maxSpeed = 0f;
         jumpForce = 0f;
-        //anim.SetBool("Dead", true);
-        yield return new WaitForSeconds(0f); //2f
+        anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(1.1f); //2f
 
         //This needs to be updated in case they run out of lives?
+        anim.SetBool("Dead", false);
         body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
         curHealth = maxHealth;
         maxSpeed = baseSpeed;
@@ -265,9 +266,12 @@ public class Player_Controller : MonoBehaviour {
     }
 
     IEnumerator Hit()
-    {
-        anim.SetBool("Hit", true);
-        yield return new WaitForSeconds(.8f);
-        anim.SetBool("Hit", false);
+    {   if(curHealth > 0)
+        {
+            anim.SetBool("Hit", true);
+            yield return new WaitForSeconds(.8f);
+            anim.SetBool("Hit", false);
+        }
+      
     }
 }
