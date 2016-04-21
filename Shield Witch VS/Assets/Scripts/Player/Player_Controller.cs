@@ -5,6 +5,9 @@ using System.Collections;
 
 public class Player_Controller : MonoBehaviour {
 
+    public Animator witch;
+    public Animator wizard;
+
 	public GameObject player;
 	private SceneFadeInOut fadescript;
 	public Image fader;
@@ -45,6 +48,16 @@ public class Player_Controller : MonoBehaviour {
     void Awake()
     {
         body2D = GetComponent<Rigidbody2D>();
+        /*if(MenuManager.characterSelected == 0)
+        {
+            anim = witch;
+        }
+        else if (MenuManager.characterSelected == 1)
+        {
+            anim = wizard;
+            witch.runtimeAnimatorController = Resources.Load("WizardController") as RuntimeAnimatorController;
+        } */
+
         anim = GetComponent<Animator>(); 
     }
 
