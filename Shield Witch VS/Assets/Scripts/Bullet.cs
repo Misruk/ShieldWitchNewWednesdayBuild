@@ -68,6 +68,11 @@ public class Bullet : MonoBehaviour {
 			Debug.Log ("Bullet hit wall");
 			Destroy (gameObject);
 		}
+
+		if (col.gameObject.tag == "Enemy") {
+			Debug.Log ("Bullet hit wall");
+			Destroy (gameObject);
+		}
     }
 
     void OnTriggerStay2D(Collider2D col)

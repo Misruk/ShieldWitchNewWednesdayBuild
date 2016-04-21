@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyStraightShooter : MonoBehaviour {
-
+	public int enHealth = 2;
 	public int speed;
 	private Vector3 euler;
 	private Vector3 look;
@@ -19,6 +19,11 @@ public class EnemyStraightShooter : MonoBehaviour {
 	private AudioSource shooterdeathSource;
 	public AudioClip shooterfire;
 	private AudioSource shooterfireSource;
+	public AudioClip shooterdamage;
+	private AudioSource shooterdamageSource;
+
+	public GameObject[] explosions;
+	public Color[] colors;
 
 	void Awake()
 	{
@@ -34,6 +39,7 @@ public class EnemyStraightShooter : MonoBehaviour {
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
 		shooterdeathSource = allAudioSources [0];
 		shooterfireSource = allAudioSources [1];
+		shooterdamageSource = allAudioSources [2];
 	}
 
 	// Update is called once per frame
@@ -59,8 +65,13 @@ public class EnemyStraightShooter : MonoBehaviour {
 		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly")
 		{
 			//target.GetComponent<Rescue>().addScoreEnemy(100);
-			Destroy(this.gameObject);
-			StartCoroutine (OnDeath ());
+			//Destroy(this.gameObject);
+			StartCoroutine(Damage());
+			//StartCoroutine (OnDeath ());
+
+			if (enHealth < 1) {
+				StartCoroutine (OnDeath ());
+			}
 		}
 
 
@@ -103,8 +114,35 @@ public class EnemyStraightShooter : MonoBehaviour {
 			//shooterfireSource.Play ();s
 	}
 
+	IEnumerator Damage()
+	{
+		enHealth--;
+		shooterdamageSource.clip = shooterdamage;
+		shooterdamageSource.Play ();
+		GameObject explosion1 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
+		GameObject explosion2 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
+		Destroy(explosion1, 1f);
+		Destroy(explosion2, 1f);
+		Color maincolor = GetComponent<SpriteRenderer> ().color;
+		GetComponent<SpriteRenderer>().color = colors[0];
+		maincolor.a = 1;
+		yield return new WaitForSeconds(.5f);
+		GetComponent<SpriteRenderer> ().color = colors [1];
+		maincolor.a = 1;
+	}
+
 	IEnumerator OnDeath()
 	{
+		Debug.Log ("ondeath played");
+		GetComponent<BoxCollider2D>().enabled = false;
+		//target = GameObject.Find("Pit").transform;
+		anim.SetBool("Sighted", false);
+		//InvokeRepeating("Shoot", 1f, 0);
+		//inRange = false;
+		GameObject explosion1 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
+		//GameObject explosion2 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
+		Destroy(explosion1, 1f);
+		//Destroy(explosion2, 1f);
 		//Play enemy death sound and then destroy
 		shooterdeathSource.clip = shooterdeath;
 		shooterdeathSource.Play ();
@@ -112,8 +150,8 @@ public class EnemyStraightShooter : MonoBehaviour {
 		//inRange = false;
 
 		yield return new WaitForSeconds(1.5f);
-
 		//Destroy(this.gameObject); 
+
 	} 
 }
 

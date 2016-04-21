@@ -79,6 +79,11 @@ public class Enemy : MonoBehaviour {
 			StartCoroutine (OnHit ());
         }
 
+		if (col.gameObject.name == "Bullet 1(Clone)") {
+			Destroy (col.gameObject);
+		}
+			
+
     }
 
 

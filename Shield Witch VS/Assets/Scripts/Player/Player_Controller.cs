@@ -204,6 +204,12 @@ public class Player_Controller : MonoBehaviour {
 			//fadescript.EndScene ();
 			//Die();
         }
+
+		if (col.gameObject.tag == "Moving") {
+			hitGround = false;
+			hitMoving = true;
+			transform.parent = col.transform;
+		}
     }
 	void OnCollisionEnter2D(Collision2D col)
 	{
@@ -224,9 +230,13 @@ public class Player_Controller : MonoBehaviour {
 
 		}
 
+
+	}
+
+	void OnTriggerExit2D(Collider2D col)
+	{
 		if (col.gameObject.tag == "Moving") {
-			hitGround = false;
-			hitMoving = true;
+			transform.parent = null;
 		}
 	}
 
