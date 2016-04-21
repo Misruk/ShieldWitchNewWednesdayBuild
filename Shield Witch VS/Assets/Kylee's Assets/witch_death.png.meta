@@ -1,0 +1,361 @@
+fileFormatVersion: 2
+guid: b4b87cc2c1a754f499ff5a0e37ea9188
+timeCreated: 1461218605
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: witch_death_0
+    21300002: witch_death_1
+    21300004: witch_death_2
+    21300006: witch_death_3
+    21300008: witch_death_4
+    21300010: witch_death_5
+    21300012: witch_death_6
+    21300014: witch_death_7
+    21300016: witch_death_8
+    21300018: witch_death_9
+    21300020: witch_death_10
+    21300022: witch_death_11
+    21300024: witch_death_12
+    21300026: witch_death_13
+    21300028: witch_death_14
+    21300030: witch_death_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: witch_death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 27}
+        - {x: -37, y: -9}
+        - {x: -30, y: -26}
+        - {x: -27, y: -27}
+        - {x: 7, y: -27}
+        - {x: 7, y: 16}
+        - {x: -2, y: 27}
+    - name: witch_death_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 27}
+        - {x: -37, y: -19}
+        - {x: -35, y: -20}
+        - {x: -22, y: -27}
+        - {x: 7, y: -27}
+        - {x: 7, y: 17}
+        - {x: 3, y: 27}
+    - name: witch_death_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 27}
+        - {x: -37, y: -22}
+        - {x: -27, y: -27}
+        - {x: 8, y: -27}
+        - {x: 8, y: 20}
+        - {x: -12, y: 27}
+    - name: witch_death_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 27}
+        - {x: -37, y: -19}
+        - {x: -35, y: -20}
+        - {x: -22, y: -27}
+        - {x: 7, y: -27}
+        - {x: 7, y: 17}
+        - {x: 3, y: 27}
+    - name: witch_death_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 27}
+        - {x: -37, y: -9}
+        - {x: -30, y: -26}
+        - {x: -27, y: -27}
+        - {x: 7, y: -27}
+        - {x: 7, y: 16}
+        - {x: -2, y: 27}
+    - name: witch_death_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 27}
+        - {x: -37, y: -6}
+        - {x: -31, y: -18}
+        - {x: -25, y: -27}
+        - {x: 8, y: -27}
+        - {x: 8, y: 13}
+        - {x: -4, y: 27}
+    - name: witch_death_6
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 27}
+        - {x: -24, y: 27}
+        - {x: -29, y: 26}
+        - {x: -29, y: -27}
+        - {x: 12, y: -27}
+        - {x: 12, y: -24}
+        - {x: 15, y: -2}
+        - {x: 15, y: 14}
+    - name: witch_death_7
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 23}
+        - {x: -23, y: 14}
+        - {x: -23, y: -27}
+        - {x: 22, y: -27}
+        - {x: 28, y: -2}
+        - {x: 28, y: 14}
+        - {x: 12, y: 23}
+    - name: witch_death_8
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    - name: witch_death_9
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 7}
+        - {x: -11, y: 7}
+        - {x: -36, y: -16}
+        - {x: -36, y: -27}
+        - {x: 35, y: -27}
+        - {x: 37, y: -25}
+        - {x: 37, y: -16}
+    - name: witch_death_10
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    - name: witch_death_11
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    - name: witch_death_12
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    - name: witch_death_13
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    - name: witch_death_14
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    - name: witch_death_15
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 0
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 8}
+        - {x: -17, y: 7}
+        - {x: -36, y: -25}
+        - {x: -35, y: -27}
+        - {x: 37, y: -27}
+        - {x: 37, y: -15}
+        - {x: 14, y: 8}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
