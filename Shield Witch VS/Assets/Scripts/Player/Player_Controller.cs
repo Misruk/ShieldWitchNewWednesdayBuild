@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Player_Controller : MonoBehaviour {
 
-
+	public GameObject player;
+	private SceneFadeInOut fadescript;
+	public Image fader;
 	//Cam
 	public float groundY;
 	public bool hitGround;
 	public bool hitMoving;
+	public bool killboxed;
 
     public float maxSpeed = 10f;
     public float baseSpeed = 10f;
@@ -194,7 +198,11 @@ public class Player_Controller : MonoBehaviour {
         }
         if (col.gameObject.tag == "Killbox")
         {
-            Die();
+			//killboxed = true;
+			Debug.Log ("killbox initiating fadescript");
+			fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+			//fadescript.EndScene ();
+			//Die();
         }
     }
 	void OnCollisionEnter2D(Collision2D col)
