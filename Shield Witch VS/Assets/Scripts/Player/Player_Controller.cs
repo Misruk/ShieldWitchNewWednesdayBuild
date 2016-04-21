@@ -56,9 +56,9 @@ public class Player_Controller : MonoBehaviour {
 		damageSource = allAudioSources [1];
 		deathSource = allAudioSources [2];
 
-		maxSpeed = 0;
-		jumpForce = 0;
-		baseJump = 0;
+		maxSpeed = baseSpeed;
+		jumpForce = baseJump;
+        //baseJump = 0;
 
 	}
 
