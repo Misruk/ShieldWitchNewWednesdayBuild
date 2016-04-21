@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Camera\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Camera\PixelPerfectCamera.cs" />
+    <Compile Include="Assets\Scripts\Camera\SceneFadeInOut.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DoorTrigger.cs" />
