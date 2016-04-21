@@ -34,6 +34,7 @@ public class Camera2DFollow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+		//player = GameObject.Find("Player_Test");
 		hitGround = player.GetComponent<Player_Controller> ().hitGround;
         // only update lookahead pos if accelerating or changed direction
         float xMoveDelta = (target.position - m_LastTargetPosition).x;

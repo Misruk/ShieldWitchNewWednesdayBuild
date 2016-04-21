@@ -11,6 +11,7 @@ public class EnemyStraightShooter : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public float shootDelay;
 	public GameObject bulletSpawner;
+	public bool dead;
 
 	private Animator anim;
 
@@ -44,6 +45,10 @@ public class EnemyStraightShooter : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+
+		if (dead) {
+			//GetComponent<Animator>().
+		}
 		//euler = transform.eulerAngles;
 		// look = target.transform.position - this.transform.position;
 		//euler.z = Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg - 90;
@@ -62,16 +67,16 @@ public class EnemyStraightShooter : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly")
+		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly" && enHealth > 0)
 		{
 			//target.GetComponent<Rescue>().addScoreEnemy(100);
 			//Destroy(this.gameObject);
 			StartCoroutine(Damage());
 			//StartCoroutine (OnDeath ());
-
-			if (enHealth < 1) {
-				StartCoroutine (OnDeath ());
-			}
+		}
+		else if (enHealth < 1) {
+			StartCoroutine (OnDeath ());
+			dead = true;
 		}
 
 
