@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: bef217b88592da34a98f07236215c1d4
-timeCreated: 1461275937
+timeCreated: 1461358615
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: billboard_red_0
+    21300002: billboard_red_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,11 +28,11 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +40,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +51,39 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: billboard_red_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 94
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: 30.5}
+        - {x: -47, y: 30.5}
+        - {x: -47, y: -29.5}
+        - {x: -46, y: -30.5}
+        - {x: 47, y: -30.5}
+    - name: billboard_red_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 94
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: 30.5}
+        - {x: -47, y: 30.5}
+        - {x: -47, y: -29.5}
+        - {x: -46, y: -30.5}
+        - {x: 47, y: -30.5}
     outline: []
   spritePackingTag: 
   userData: 
