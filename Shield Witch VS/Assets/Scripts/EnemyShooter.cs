@@ -146,6 +146,7 @@ public class EnemyShooter : MonoBehaviour {
 	IEnumerator OnDeath()
 	{
 		GetComponent<BoxCollider2D>().enabled = false;
+		GetComponent<CircleCollider2D> ().enabled = false;
 		target = GameObject.Find("Pit").transform;
 		inRange = false;
 		GameObject explosion1 = Instantiate(explosions[Random.Range(0, explosions.Length)], transform.position, Quaternion.identity) as GameObject;
