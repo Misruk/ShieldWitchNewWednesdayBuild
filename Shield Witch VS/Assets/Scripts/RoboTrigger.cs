@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class RoboTrigger : MonoBehaviour {
 
@@ -11,6 +12,10 @@ public class RoboTrigger : MonoBehaviour {
 	public AudioClip triggersound;
 	private Enemy script1;
 	private Enemy script2;
+	//private GameObject[] 
+
+
+
 	void Start (){
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
 		triggerSource = allAudioSources [0];
@@ -20,7 +25,7 @@ public class RoboTrigger : MonoBehaviour {
 
 		if (hit.CompareTag("Player"))
 		{
-
+			//for (int i = 0; i <
 			script1 = enemies [0].GetComponent<Enemy> ();
 			script2 = enemies [1].GetComponent<Enemy> ();
 			script1.enabled = true;
@@ -29,14 +34,15 @@ public class RoboTrigger : MonoBehaviour {
 			script2.chasing = true;
 			enemies[0].GetComponent<BoxCollider2D>().enabled = true;
 			enemies[1].GetComponent<BoxCollider2D>().enabled = true;
-			StartCoroutine (ShutDown ());
 			triggerSource.clip = triggersound;
 			triggerSource.Play ();
 
-
+			if (SceneManager.GetActiveScene ().name != "level 3 prototype") {
+				StartCoroutine (ShutDown ());
+			}
 		}
 	}
-
+		
 	IEnumerator ShutDown()
 	{
 		yield return new WaitForSeconds (8f);

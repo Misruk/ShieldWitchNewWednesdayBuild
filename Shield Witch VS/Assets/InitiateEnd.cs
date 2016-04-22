@@ -15,7 +15,7 @@ public class InitiateEnd : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Deadly")
+		if (col.gameObject.tag == "Deadly" || col.gameObject.tag == "Player")
 		{
 			player.GetComponent<Player_Controller> ().winner = true;
 		}

@@ -29,4 +29,15 @@ public class MovingPlatform : MonoBehaviour {
 			currentPoint = points [pointSelection];
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Wall") {
+			Debug.Log ("hit wall");
+			moveSpeed = 0;
+		}
+
+		if (col.gameObject.tag == "Player") {
+			moveSpeed = 2;
+		}
+	}
 }
