@@ -69,21 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CamController.cs" />
-    <Compile Include="Assets\CameraZoomOut.cs" />
     <Compile Include="Assets\ExplosionForce2D\script\ExplosionForce2D.cs" />
-    <Compile Include="Assets\Fall.cs" />
     <Compile Include="Assets\InitiateEnd.cs" />
-    <Compile Include="Assets\LaserTrigger.cs" />
     <Compile Include="Assets\MagicShieldBar.cs" />
     <Compile Include="Assets\MenuManager.cs" />
-    <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
-    <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
-    <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
-    <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
-    <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
-    <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\Scripts\AlienC.cs" />
-    <Compile Include="Assets\Scripts\Bob.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CamShakeSimple.cs" />
     <Compile Include="Assets\Scripts\Camera\Camera2DFollow.cs" />
@@ -98,7 +88,6 @@
     <Compile Include="Assets\Scripts\EnemyShooter.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\EnemyStraightShooter.cs" />
-    <Compile Include="Assets\Scripts\Enlarger.cs" />
     <Compile Include="Assets\Scripts\FallingFruit.cs" />
     <Compile Include="Assets\Scripts\FallingPlatform.cs" />
     <Compile Include="Assets\Scripts\FallingRock.cs" />
@@ -120,11 +109,9 @@
     <Compile Include="Assets\Scripts\Old Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Shoot.cs" />
-    <Compile Include="Assets\Scripts\Player\Glow.cs" />
     <Compile Include="Assets\Scripts\Player\MagicShield.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSelect.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Controller.cs" />
-    <Compile Include="Assets\Scripts\Player\expand.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
