@@ -12,6 +12,8 @@ public class MagicShield : MonoBehaviour {
     private Vector3 startPos;
     private Vector3 playerPos;
 
+    private Animator anim;
+
     private Transform shield;
     private SpriteRenderer shieldRender;
     private CircleCollider2D shieldCollide;
@@ -29,6 +31,7 @@ public class MagicShield : MonoBehaviour {
     // Use this for initialization
     void Awake ()
     {
+        //anim = GetComponent<Animator>();
         shield = GetComponent<Transform>();
         shieldRender = GetComponent<SpriteRenderer>();
         shieldCollide = GetComponent<CircleCollider2D>();
@@ -108,8 +111,10 @@ public class MagicShield : MonoBehaviour {
         {
             shieldRender.enabled = false;
             shieldCollide.enabled = false;
+            //anim.SetBool("Broken", true);
             yield return new WaitForSeconds(shieldCharge);
             shieldUse = 3f;
+           // anim.SetBool("Broken", false);
         }
         
     }

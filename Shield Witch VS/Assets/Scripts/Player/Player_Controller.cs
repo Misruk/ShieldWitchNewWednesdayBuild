@@ -66,7 +66,7 @@ public class Player_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		GetComponent<Rigidbody2D> ().gravityScale = .5f;
+		//GetComponent<Rigidbody2D> ().gravityScale = .5f;
 		camcam = GameObject.Find ("Main_Camera(1)");
 		//body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
         curHealth = maxHealth;

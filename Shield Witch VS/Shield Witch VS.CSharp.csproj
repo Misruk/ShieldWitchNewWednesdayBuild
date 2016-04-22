@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Assets\CamController.cs" />
     <Compile Include="Assets\ExplosionForce2D\script\ExplosionForce2D.cs" />
+    <Compile Include="Assets\InitiateEnd.cs" />
     <Compile Include="Assets\MagicShieldBar.cs" />
     <Compile Include="Assets\MenuManager.cs" />
     <Compile Include="Assets\Scripts\AlienC.cs" />

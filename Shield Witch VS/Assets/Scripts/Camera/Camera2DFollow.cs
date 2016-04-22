@@ -7,6 +7,7 @@ using System;
 public class Camera2DFollow : MonoBehaviour
 {
     public Transform target;
+    public Transform target2;
     public float damping = 1;
     public float lookAheadFactor = 3;
     public float lookAheadReturnSpeed = 0.5f;
@@ -24,6 +25,13 @@ public class Camera2DFollow : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        if(MenuManager.characterSelected == 0)
+        {
+            Debug.Log("Camera locked onto Witch");
+        } else if (MenuManager.characterSelected == 1)
+        {
+            target = target2;
+        }
 		player = GameObject.Find("Player_Test");
 		m_LastTargetPosition = target.position;
         m_OffsetZ = (transform.position - target.position).z;
