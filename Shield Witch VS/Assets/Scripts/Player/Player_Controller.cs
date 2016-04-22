@@ -33,6 +33,7 @@ public class Player_Controller : MonoBehaviour {
 
     public int curHealth;
     public int maxHealth = 3;
+	public int nextlevel;
 
 	[Header("Audio")]
 	private AudioSource[] allAudioSources;
@@ -44,6 +45,7 @@ public class Player_Controller : MonoBehaviour {
 	public AudioClip deathsound;
 
 	private GameObject camcam;
+	public bool winner;
 
     void Awake()
     {
@@ -64,7 +66,7 @@ public class Player_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		GetComponent<Rigidbody2D> ().gravityScale = 3f;
+		GetComponent<Rigidbody2D> ().gravityScale = .5f;
 		camcam = GameObject.Find ("Main_Camera(1)");
 		//body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
         curHealth = maxHealth;
@@ -81,6 +83,12 @@ public class Player_Controller : MonoBehaviour {
 
 	void FixedUpdate () {
 
+		if (winner) {
+			//body2D.AddForce (new Vector2 (0, jumpForce));
+			//StartCoroutine(WinLook());
+			body2D.velocity = new Vector2 (1, 0);
+			//Win ();
+		}
         //uses the groundcheck transform to find whether we are ON THE GROUND. Returns true or false.
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
@@ -108,7 +116,9 @@ public class Player_Controller : MonoBehaviour {
         }
 
         //moves the player left or right based on button press.
-        body2D.velocity = new Vector2(move * maxSpeed, body2D.velocity.y);
+		if (!winner) {
+			body2D.velocity = new Vector2 (move * maxSpeed, body2D.velocity.y);
+		}
 
 
 
@@ -140,6 +150,7 @@ public class Player_Controller : MonoBehaviour {
 			maxSpeed = 4;
 			baseJump = 550;
 			jumpForce = 550;
+			GetComponent<Rigidbody2D> ().gravityScale = 3f;
 		}
         //Currently Jump is just the space button for testing purposes, we will change this!
         if(grounded && Input.GetButtonDown("Jump"))
@@ -212,15 +223,33 @@ public class Player_Controller : MonoBehaviour {
         if (col.gameObject.tag == "Killbox")
         {
 			//killboxed = true;
-			Debug.Log ("killbox initiating fadescript");
-			fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+			//Debug.Log ("killbox initiating fadescript");
+			//fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 			//fadescript.EndScene ();
-			//Die();
+			Die();
         }
 
+		if (col.gameObject.tag == "Winbox" && winner)
+		{
+			//killboxed = true;
+			//Debug.Log ("killbox initiating fadescript");
+			Debug.Log("should be winning");
+			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);	
+			fader.GetComponent<SceneFadeInOut> ().levelint = nextlevel;
+			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);
+			fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+			fadescript.EndScene ();
+			//Win();
+		}
 		if (col.gameObject.tag == "Moving") {
 			hitGround = false;
 			hitMoving = true;
+			transform.parent = col.transform;
+		}
+
+		if (col.gameObject.tag == "MovingStrictCam") {
+			hitGround = true;
+			hitMoving = false;
 			transform.parent = col.transform;
 		}
     }
@@ -248,7 +277,7 @@ public class Player_Controller : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Moving") {
+		if (col.gameObject.tag == "Moving" || col.gameObject.tag == "MovingStrictCam") {
 			transform.parent = null;
 		}
 	}
@@ -268,7 +297,8 @@ public class Player_Controller : MonoBehaviour {
         maxSpeed = 0f;
         jumpForce = 0f;
         anim.SetBool("Dead", true);
-        yield return new WaitForSeconds(1.1f); //2f
+		fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+		yield return new WaitForSeconds(2f); //2f //1.1f
 
         //This needs to be updated in case they run out of lives?
         anim.SetBool("Dead", false);
@@ -287,4 +317,25 @@ public class Player_Controller : MonoBehaviour {
         }
       
     }
+
+	IEnumerator WinLook()
+	{   if(curHealth > 0)
+		{
+			Flip ();
+			yield return new WaitForSeconds(.8f);
+			Flip ();
+		}
+
+	}
+
+	IEnumerator Win()
+	{
+		Debug.Log ("winning");
+		maxSpeed = 0f;
+		jumpForce = 0f;
+		//anim.SetBool("Dead", true);
+		fader.GetComponent<SceneFadeInOut> ().levelint = 2;
+		//fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+		yield return new WaitForSeconds(5f);
+	}
 }

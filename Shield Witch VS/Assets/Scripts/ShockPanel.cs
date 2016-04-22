@@ -28,10 +28,11 @@ void Update () {
 void OnTriggerEnter2D(Collider2D target){
 	if (target.gameObject.tag == "ShieldPulse"){
 		Debug.Log ("Hit by shield pulse");
-		animator.SetInteger ("AnimState", 1);
-		down = true;
 		elecswitchSource.clip = elecswitch;
 		elecswitchSource.Play ();
+		animator.SetInteger ("AnimState", 1);
+		down = true;
+
 
 		foreach (DoorTrigger trigger in doorTriggers) {
 			if (trigger != null)

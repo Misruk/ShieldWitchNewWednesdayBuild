@@ -27,6 +27,8 @@ public class RoboTrigger : MonoBehaviour {
 			script1.chasing = true;
 			script2.enabled = true;
 			script2.chasing = true;
+			enemies[0].GetComponent<BoxCollider2D>().enabled = true;
+			enemies[1].GetComponent<BoxCollider2D>().enabled = true;
 			StartCoroutine (ShutDown ());
 			triggerSource.clip = triggersound;
 			triggerSource.Play ();
@@ -40,6 +42,8 @@ public class RoboTrigger : MonoBehaviour {
 		yield return new WaitForSeconds (8f);
 		script1.chasing = false;
 		script2.chasing = false;
+		enemies[0].GetComponent<BoxCollider2D>().enabled = false;
+		enemies[1].GetComponent<BoxCollider2D>().enabled = false;
 		//script1.enabled = false;
 
 	}
