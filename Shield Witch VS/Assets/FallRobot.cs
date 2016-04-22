@@ -21,7 +21,9 @@ public class FallRobot : MonoBehaviour {
 
 		if (isdeadL && isdeadR) {
 			bridge2.SetActive (true);
+			Destroy (GetComponent<Bob> ());
 			gameObject.AddComponent<Rigidbody2D> ().gravityScale = .5f;
+
 		}
 	}
 
