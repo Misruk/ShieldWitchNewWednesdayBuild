@@ -83,12 +83,17 @@ public class Player_Controller : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		if (winner) {
+		if (winner && SceneManager.GetActiveScene ().name != "level 3 prototype") {
 			//body2D.AddForce (new Vector2 (0, jumpForce));
 			//StartCoroutine(WinLook());
 			body2D.velocity = new Vector2 (1, 0);
 			//Win ();
 		}
+
+		if (winner && SceneManager.GetActiveScene ().name == "level 3 prototype") {
+			body2D.velocity = new Vector2 (0, 2.5f);
+		}
+
         //uses the groundcheck transform to find whether we are ON THE GROUND. Returns true or false.
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
@@ -226,7 +231,7 @@ public class Player_Controller : MonoBehaviour {
 			//Debug.Log ("killbox initiating fadescript");
 			//fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 			//fadescript.EndScene ();
-			Die();
+			//Die();
         }
 
 		if (col.gameObject.tag == "Winbox" && winner)
@@ -297,7 +302,9 @@ public class Player_Controller : MonoBehaviour {
         maxSpeed = 0f;
         jumpForce = 0f;
         anim.SetBool("Dead", true);
+		fader.GetComponent<SceneFadeInOut> ().levelint = SceneManager.GetActiveScene ().buildIndex;
 		fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+
 		yield return new WaitForSeconds(2f); //2f //1.1f
 
         //This needs to be updated in case they run out of lives?

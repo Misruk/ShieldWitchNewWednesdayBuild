@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour {
 	public AudioClip stun;
 	public AudioClip death;
 
+	public bool isdead = false;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -103,7 +105,7 @@ public class Enemy : MonoBehaviour {
 			StartCoroutine (OnStun ());
 		}
 
-		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly")
+		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly" || col.gameObject.tag == "Killbox")
 		{
 			//target.GetComponent<Rescue>().addScoreEnemy(100);
 			//Destroy(this.gameObject);
@@ -169,6 +171,9 @@ public class Enemy : MonoBehaviour {
 		//chasing = false;
 		yield return new WaitForSeconds(2f);       
         //Destroy(this.gameObject); 
+		isdead = true;
+
+
 	} 
     /*public void OnDeath()
     {

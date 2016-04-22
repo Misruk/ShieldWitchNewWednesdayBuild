@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class Killbox : MonoBehaviour {
 
-	public string scene;
+	//public string scene;
 	public Color myColor;
-	public GameObject player;
+	private GameObject player;
 	private SceneFadeInOut fadescript;
 	// Use this for initialization
 	void Start () {
@@ -22,6 +22,7 @@ public class Killbox : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
+			player.GetComponent<Player_Controller> ().curHealth = 0;
 			//Initiate.Fade(scene,myColor,0.5f);
 			//Debug.Log("Killboxed");
 			//fadescript.EndScene ();
