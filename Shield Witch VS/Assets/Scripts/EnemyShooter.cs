@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyShooter : MonoBehaviour {
 
 	public int enHealth;
-
+	public bool isdead;
     public int speed;
     private Vector3 euler;
     private Vector3 look;
@@ -145,6 +145,7 @@ public class EnemyShooter : MonoBehaviour {
 
 	IEnumerator OnDeath()
 	{
+		isdead = true;
 		GetComponent<BoxCollider2D>().enabled = false;
 		GetComponent<CircleCollider2D> ().enabled = false;
 		target = GameObject.Find("Pit").transform;

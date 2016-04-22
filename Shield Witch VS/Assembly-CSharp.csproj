@@ -49,6 +49,7 @@
      <Compile Include="Assets\CameraZoomOut.cs" />
      <Compile Include="Assets\ExplosionForce2D\script\ExplosionForce2D.cs" />
      <Compile Include="Assets\Fall.cs" />
+     <Compile Include="Assets\FallRobot.cs" />
      <Compile Include="Assets\InitiateEnd.cs" />
      <Compile Include="Assets\LaserTrigger.cs" />
      <Compile Include="Assets\MagicShieldBar.cs" />
@@ -75,7 +76,6 @@
      <Compile Include="Assets\Scripts\EnemyShooter.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemyStraightShooter.cs" />
-     <Compile Include="Assets\Scripts\Enlarger.cs" />
      <Compile Include="Assets\Scripts\FallingFruit.cs" />
      <Compile Include="Assets\Scripts\FallingPlatform.cs" />
      <Compile Include="Assets\Scripts\FallingRock.cs" />
