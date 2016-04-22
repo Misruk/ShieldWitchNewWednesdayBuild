@@ -3,9 +3,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class Enlarger : MonoBehaviour {
+public class Enlarger : MonoBehaviour
+{
 
-	public GameObject portal;
+    /*public GameObject portal;
 
 	Start(){
 
@@ -16,4 +17,5 @@ public class Enlarger : MonoBehaviour {
 		Vector3 originalscale = portal.transform.localScale;
 		Vector3 destinationscale
 
+} */
 }
