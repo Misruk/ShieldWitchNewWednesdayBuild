@@ -31,7 +31,7 @@ public class CamShakeSimple : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Player")
+        if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "Deadly")
         {
             shakeAmt = coll.relativeVelocity.magnitude * .0025f;
             shakeAmt = 25 * .0025f;
