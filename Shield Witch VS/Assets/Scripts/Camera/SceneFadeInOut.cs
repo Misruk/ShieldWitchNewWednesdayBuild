@@ -6,10 +6,11 @@ using System.Collections;
 public class SceneFadeInOut : MonoBehaviour
 {
     public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
-	public int levelint;
+	//public int levelint;
 	public Image image;
     private bool sceneStarting = true;      // Whether or not the scene is still fading in.
 	public bool sceneEnding = false;
+	public string scenery;
     
     
     void Awake ()
@@ -76,7 +77,8 @@ public class SceneFadeInOut : MonoBehaviour
         // If the screen is almost black...
 		if(image.color.a >= 0.95f)
             // ... reload the level.
-			SceneManager.LoadScene(levelint);
+			//LevelManager.changeToPreviousLvl();
+			SceneManager.LoadScene(scenery);
             //Application.LoadLevel(0);
     }
 }

@@ -7,6 +7,7 @@ public class Player_Controller : MonoBehaviour {
 
     public Animator witch;
     public Animator wizard;
+	public string winscene;
 
 	public GameObject player;
 	private SceneFadeInOut fadescript;
@@ -44,12 +45,18 @@ public class Player_Controller : MonoBehaviour {
 	public AudioClip damagesound;
 	public AudioClip deathsound;
 
+
 	private GameObject camcam;
 	public bool winner;
 
     void Awake()
     {
+		LevelManager.setLastLevel (SceneManager.GetActiveScene().name);
+		Debug.Log (SceneManager.GetActiveScene().name);
+		//LevelManager.setLastLevel (Application.loadedLevelName);
         body2D = GetComponent<Rigidbody2D>();
+
+
         /*if(MenuManager.characterSelected == 0)
         {
             anim = witch;
@@ -240,7 +247,7 @@ public class Player_Controller : MonoBehaviour {
 			//Debug.Log ("killbox initiating fadescript");
 			Debug.Log("should be winning");
 			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);	
-			fader.GetComponent<SceneFadeInOut> ().levelint = nextlevel;
+			fader.GetComponent<SceneFadeInOut> ().scenery = winscene;
 			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);
 			fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 			fadescript.EndScene ();
@@ -302,14 +309,14 @@ public class Player_Controller : MonoBehaviour {
         maxSpeed = 0f;
         jumpForce = 0f;
         anim.SetBool("Dead", true);
-		fader.GetComponent<SceneFadeInOut> ().levelint = SceneManager.GetActiveScene ().buildIndex;
+		//fader.GetComponent<SceneFadeInOut> ().levelint = SceneManager.GetActiveScene ().buildIndex;
 		fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 
 		yield return new WaitForSeconds(2f); //2f //1.1f
 
         //This needs to be updated in case they run out of lives?
         anim.SetBool("Dead", false);
-        body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
+        //body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
         curHealth = maxHealth;
         maxSpeed = baseSpeed;
         jumpForce = baseJump;
@@ -341,7 +348,7 @@ public class Player_Controller : MonoBehaviour {
 		maxSpeed = 0f;
 		jumpForce = 0f;
 		//anim.SetBool("Dead", true);
-		fader.GetComponent<SceneFadeInOut> ().levelint = 2;
+		fader.GetComponent<SceneFadeInOut> ().scenery = winscene;
 		//fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 		yield return new WaitForSeconds(5f);
 	}
