@@ -26,18 +26,23 @@ public class MenuManager : MonoBehaviour {
 
     public void LoadLab()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		SceneManager.LoadScene ("Level");
     }
 
     public void LoadForest()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+		SceneManager.LoadScene ("Level2");
     }
 
     public void LoadCity()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+        SceneManager.LoadScene("Level3");
     }
+
+	public void LoadMainMenu()
+	{
+		SceneManager.LoadScene ("MainMenu");
+	}
 
     public void MenuLevel()
     {

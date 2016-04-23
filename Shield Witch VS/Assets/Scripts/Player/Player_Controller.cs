@@ -90,14 +90,14 @@ public class Player_Controller : MonoBehaviour {
 
 	void FixedUpdate () {
 
-		if (winner && SceneManager.GetActiveScene ().name != "level 3 prototype") {
+		if (winner && SceneManager.GetActiveScene ().name != "Level3") {
 			//body2D.AddForce (new Vector2 (0, jumpForce));
 			//StartCoroutine(WinLook());
 			body2D.velocity = new Vector2 (1, 0);
 			//Win ();
 		}
 
-		if (winner && SceneManager.GetActiveScene ().name == "level 3 prototype") {
+		if (winner && SceneManager.GetActiveScene ().name == "Level3") {
 			body2D.velocity = new Vector2 (0, 2.5f);
 		}
 

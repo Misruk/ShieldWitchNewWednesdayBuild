@@ -45,7 +45,7 @@ void OnTriggerEnter2D(Collider2D target){
 				trigger.Toggle (true);
 		}
 
-		if (SceneManager.GetActiveScene ().name == "level 3 prototype") {
+		if (SceneManager.GetActiveScene ().name == "Level3") {
 			activateable.SetActive (true);
 		}
 	}
