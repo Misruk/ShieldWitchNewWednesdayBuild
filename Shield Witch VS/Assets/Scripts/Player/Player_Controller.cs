@@ -250,7 +250,7 @@ public class Player_Controller : MonoBehaviour {
 			fader.GetComponent<SceneFadeInOut> ().scenery = winscene;
 			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);
 			fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
-			fadescript.EndScene ();
+			//fadescript.EndScene ();
 			//Win();
 		}
 		if (col.gameObject.tag == "Moving") {
