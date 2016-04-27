@@ -1,4 +1,4 @@
-﻿	using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -48,6 +48,7 @@ public class Player_Controller : MonoBehaviour {
 
 	private GameObject camcam;
 	public bool winner;
+	public Color[] colors;
 
     void Awake()
     {
@@ -264,7 +265,15 @@ public class Player_Controller : MonoBehaviour {
 			hitMoving = false;
 			transform.parent = col.transform;
 		}
+
+
+
+
     }
+
+	void OnTriggerStay2D(Collider2D col){
+
+	}
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if(col.gameObject.tag == "Enemy" || col.gameObject.tag == "Deadly" || col.gameObject.tag == "BulletHold")
@@ -274,7 +283,7 @@ public class Player_Controller : MonoBehaviour {
 			damageSource.Play ();
             //curHealth--;
             StartCoroutine(Damage());
-            StartCoroutine(Hit());
+            
         }
 
 		if (col.gameObject.tag == "Ground") {
@@ -284,9 +293,23 @@ public class Player_Controller : MonoBehaviour {
 
 		}
 
+		if (col.gameObject.tag == "TarPit") {
+			maxSpeed = 1;
+			//curHealth = curHealth - 1;
+			StartCoroutine(TarDamage());
+			//StartCoroutine(Hit());
+
+		}
+
 
 	}
 
+	void OnCollisionExit2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "TarPit") {
+			maxSpeed = 3;
+		}
+	}
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "Moving" || col.gameObject.tag == "MovingStrictCam") {
@@ -299,6 +322,15 @@ public class Player_Controller : MonoBehaviour {
         curHealth--;
         yield return new WaitForSeconds(1.5f);
     }
+
+
+	IEnumerator TarDamage()
+	{
+		
+		yield return new WaitForSeconds(3f);
+		curHealth--;
+		StartCoroutine(Hit());
+	}
 
     IEnumerator Death()
     {
@@ -326,8 +358,13 @@ public class Player_Controller : MonoBehaviour {
     {   if(curHealth > 0)
         {
             anim.SetBool("Hit", true);
-            yield return new WaitForSeconds(.8f);
+			Color maincolor = GetComponent<SpriteRenderer> ().color;
+			GetComponent<SpriteRenderer>().color = colors[0];
+			maincolor.a = 1;
+            yield return new WaitForSeconds(.4f);
             anim.SetBool("Hit", false);
+			GetComponent<SpriteRenderer> ().color = colors [1];
+			maincolor.a = 1;
         }
       
     }
