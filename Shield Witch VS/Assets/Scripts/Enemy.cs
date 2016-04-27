@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
 
     public float speed = 1;
     public GameObject target;
+	public GameObject target2;
     public GameObject scorePrefab;
     public bool chasing = true;
 	public Collider2D OutOfRange;
@@ -39,7 +40,13 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		chasing = false;
-        target = GameObject.Find("Player_Test");
+		if(MenuManager.characterSelected == 0)
+		{
+			Debug.Log("Camera locked onto Witch");
+		} else if (MenuManager.characterSelected == 1)
+		{
+			target = target2;
+		}
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();
 		attackSource = allAudioSources [0];
 		stunSource = allAudioSources [1];

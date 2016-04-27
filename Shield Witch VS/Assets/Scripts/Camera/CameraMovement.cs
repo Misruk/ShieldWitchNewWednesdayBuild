@@ -19,12 +19,13 @@ public class CameraMovement : MonoBehaviour {
 
     void Awake()
     {
-        player = GameObject.Find("Player_Test");
+        
 		//gcamera = GameObject.Find ("Main Camera(1)");
     }
 
 	void Update()
 	{
+		player = GameObject.Find("Player_Test");
 		groundY = player.GetComponent<Player_Controller>().groundY;
 		hitGround = player.GetComponent<Player_Controller> ().hitGround;	
 		hitMoving = player.GetComponent<Player_Controller> ().hitMoving;

@@ -8,13 +8,21 @@ public class CamController : MonoBehaviour {
 	public GameObject player;
 	public CameraMovement smoothcam;
 	public Camera2DFollow strictcam;
+	public GameObject player2;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("Player_Test");
+		if(MenuManager.characterSelected == 0)
+		{
+			Debug.Log("Camera locked onto Witch");
+		} else if (MenuManager.characterSelected == 1)
+		{
+			player = player2;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//player = GameObject.Find("Player_Test");
 		hitGround = player.GetComponent<Player_Controller> ().hitGround;
 		hitMoving = player.GetComponent<Player_Controller> ().hitMoving;
 

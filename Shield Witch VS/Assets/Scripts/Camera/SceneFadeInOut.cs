@@ -11,6 +11,7 @@ public class SceneFadeInOut : MonoBehaviour
     private bool sceneStarting = true;      // Whether or not the scene is still fading in.
 	public bool sceneEnding = false;
 	public string scenery;
+	//public Text text;
     
     
     void Awake ()

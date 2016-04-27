@@ -49,9 +49,11 @@ public class Player_Controller : MonoBehaviour {
 	private GameObject camcam;
 	public bool winner;
 	public Color[] colors;
+	public Text text;
 
     void Awake()
     {
+
 		LevelManager.setLastLevel (SceneManager.GetActiveScene().name);
 		Debug.Log (SceneManager.GetActiveScene().name);
 		//LevelManager.setLastLevel (Application.loadedLevelName);
@@ -69,6 +71,7 @@ public class Player_Controller : MonoBehaviour {
         } */
 
         anim = GetComponent<Animator>(); 
+		StartCoroutine (LevelText ());
     }
 
 	// Use this for initialization
@@ -295,8 +298,9 @@ public class Player_Controller : MonoBehaviour {
 
 		if (col.gameObject.tag == "TarPit") {
 			maxSpeed = 1;
+			jumpForce = 300;
 			//curHealth = curHealth - 1;
-			StartCoroutine(TarDamage());
+			//StartCoroutine(TarDamage());
 			//StartCoroutine(Hit());
 
 		}
@@ -308,6 +312,7 @@ public class Player_Controller : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "TarPit") {
 			maxSpeed = 3;
+			jumpForce = 550;
 		}
 	}
 	void OnTriggerExit2D(Collider2D col)
@@ -328,8 +333,8 @@ public class Player_Controller : MonoBehaviour {
 	{
 		
 		yield return new WaitForSeconds(3f);
-		curHealth--;
-		StartCoroutine(Hit());
+		//curHealth--;
+		//StartCoroutine(Hit());
 	}
 
     IEnumerator Death()
@@ -388,5 +393,11 @@ public class Player_Controller : MonoBehaviour {
 		fader.GetComponent<SceneFadeInOut> ().scenery = winscene;
 		//fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 		yield return new WaitForSeconds(5f);
+	}
+
+	IEnumerator LevelText()
+	{
+		yield return new WaitForSeconds(1.5f);
+		text.CrossFadeAlpha(0.0f, 1.5f, false);
 	}
 }

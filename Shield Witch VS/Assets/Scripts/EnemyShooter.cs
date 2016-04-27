@@ -9,6 +9,7 @@ public class EnemyShooter : MonoBehaviour {
     private Vector3 euler;
     private Vector3 look;
     public Transform target;
+	public Transform target2;
     public bool inRange;
     public GameObject bulletPrefab;
 	public float shootDelay;
@@ -26,6 +27,7 @@ public class EnemyShooter : MonoBehaviour {
 	public GameObject[] explosions;
 	public Color[] colors;
 
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -34,7 +36,15 @@ public class EnemyShooter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //target = GameObject.FindGameObjectWithTag("Player").transform;
-        target = GameObject.Find("Player_Test").transform;
+       // target = GameObject.Find("Player_Test").transform;
+
+		if(MenuManager.characterSelected == 0)
+		{
+			Debug.Log("Camera locked onto Witch");
+		} else if (MenuManager.characterSelected == 1)
+		{
+			target = target2;
+		}
 		InvokeRepeating("Shoot", 1f, shootDelay);
 		//ShooterAudio
 		AudioSource[] allAudioSources = GetComponents<AudioSource>();

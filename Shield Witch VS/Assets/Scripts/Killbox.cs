@@ -6,11 +6,19 @@ public class Killbox : MonoBehaviour {
 
 	//public string scene;
 	public Color myColor;
-	private GameObject player;
+	public GameObject player;
+	public GameObject player2;
 	private SceneFadeInOut fadescript;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Player_Test");
+		if(MenuManager.characterSelected == 0)
+		{
+			Debug.Log("Camera locked onto Witch");
+		} else if (MenuManager.characterSelected == 1)
+		{
+			player = player2;
+		}
+		//player = GameObject.Find ("Player_Test");
 	}
 	
 	// Update is called once per frame
