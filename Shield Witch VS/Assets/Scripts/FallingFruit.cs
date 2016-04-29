@@ -7,9 +7,15 @@ public class FallingFruit : MonoBehaviour {
 
     public float fallDelay;
 
+	private AudioSource[] allAudioSources;
+	private AudioSource rockSource;
+	public AudioClip rocksound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+		AudioSource[] allAudioSources = GetComponents<AudioSource>();
+		rockSource = allAudioSources [0];
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -23,6 +29,12 @@ public class FallingFruit : MonoBehaviour {
         {
             rb.isKinematic = true;
         }
+
+		if (col.gameObject.tag == "TarPit") {
+			rb.isKinematic = true;
+			rockSource.clip = rocksound;
+			rockSource.Play ();
+		}
     }
 
 

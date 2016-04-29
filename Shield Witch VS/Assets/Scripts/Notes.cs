@@ -23,8 +23,18 @@ public class Notes : MonoBehaviour {
 	public AudioClip closeNote;
 	public AudioClip contactNote;
 
+	public GameObject player;
+	public GameObject player2;
+
 	// Use this for initialization
 	void Start () {
+		if(MenuManager.characterSelected == 0)
+		{
+			Debug.Log("Camera locked onto Witch");
+		} else if (MenuManager.characterSelected == 1)
+		{
+			player = player2;
+		}
 		noteImage1.SetActive (false);
 		noteButtonImage1.SetActive (false);
 		noteImage.enabled = true;
@@ -79,13 +89,20 @@ public class Notes : MonoBehaviour {
 		}
 		if (/*Time.timeScale == 0 && */ready && Input.GetButtonDown("Y")) {
 			//Audio closing note
+
+
 			Time.timeScale = 1;
+
+			player.GetComponent<Player_Controller> ().enabled = true;
+			player.GetComponent<ShieldPulse> ().enabled = true;
+			player.GetComponent<PulseGenerator> ().enabled = true;
 			//noteImage.enabled = false;
 			ready = false;
 			noteImage1.SetActive (false);
 			noteButtonImage1.SetActive (false);
 			closeSource.clip = closeNote;
 			closeSource.Play ();
+
 			//StartCoroutine(Wait());
 
 
@@ -112,6 +129,10 @@ public class Notes : MonoBehaviour {
 	IEnumerator Wait()
 	{
 		ready = false;
+		player.GetComponent<Player_Controller> ().enabled = false;
+		player.GetComponent<ShieldPulse> ().enabled = false;
+		player.GetComponent<PulseGenerator> ().enabled = false;
+
 		yield return new WaitForSeconds (.025f);
 		counter = 0;
 		ready = true;

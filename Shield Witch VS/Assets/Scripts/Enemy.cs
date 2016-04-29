@@ -114,7 +114,6 @@ public class Enemy : MonoBehaviour {
 
 		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "BulletHold" || col.gameObject.tag == "Deadly" || col.gameObject.tag == "Killbox")
 		{
-			//target.GetComponent<Rescue>().addScoreEnemy(100);
 			//Destroy(this.gameObject);
 			StartCoroutine (OnDeath ());
 		}
