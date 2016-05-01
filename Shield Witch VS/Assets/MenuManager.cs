@@ -24,9 +24,12 @@ public class MenuManager : MonoBehaviour {
     public GameObject witchAnim;
     public GameObject wizardAnim;
 
+    private AudioSource music;
+
+
     void Awake()
     {
-        mainMenu.SetActive(true);
+        /*mainMenu.SetActive(true);
         mainMenuWiz.SetActive(false);
         otherMenu.SetActive(false);
         someMenu.SetActive(false);
@@ -38,7 +41,12 @@ public class MenuManager : MonoBehaviour {
 
 
         wizardAnim.SetActive(false);
-        witchAnim.SetActive(true);
+        witchAnim.SetActive(true); */
+
+        //music = GetComponent<AudioSource>();
+        //music.Play();
+        //music.UnPause();
+
     }
 
     public void LoadLab()
@@ -60,6 +68,11 @@ public class MenuManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene ("MainMenu");
 	}
+
+    public void LoadMainMenuWiz()
+    {
+        SceneManager.LoadScene("MAINMenuWiz");
+    }
 
     public void MenuLevel()
     {
@@ -94,6 +107,10 @@ public class MenuManager : MonoBehaviour {
         mainWizEvent.SetActive(false);
         levelEvent.SetActive(false);
         levelWizEvent.SetActive(false);
+
+        //DontDestroyOnLoad(music);
+        LoadMainMenu();
+        //mainMenu.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(mainFirstSelected);
     }
 
     public void ReturnToMenuWiz()
@@ -105,6 +122,8 @@ public class MenuManager : MonoBehaviour {
         mainWizEvent.SetActive(true);
         levelEvent.SetActive(false);
         levelWizEvent.SetActive(false);
+
+        LoadMainMenuWiz();
     }
 
     public void CharacterSelectWitch()
@@ -122,6 +141,8 @@ public class MenuManager : MonoBehaviour {
 
         witchAnim.SetActive(true);
         wizardAnim.SetActive(false);
+
+        LoadMainMenu();
     }
 
     public void CharacterSelectWizard()
@@ -139,6 +160,8 @@ public class MenuManager : MonoBehaviour {
 
         wizardAnim.SetActive(true);
         witchAnim.SetActive(false);
+
+        LoadMainMenuWiz();
     }
 
     public void StartGame()
