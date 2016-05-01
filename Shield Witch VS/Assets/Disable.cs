@@ -41,6 +41,10 @@ public class Disable : MonoBehaviour {
 		rockSource.Play ();
 		col.isTrigger = true;
 		rigid.isKinematic = false;
+        yield return new WaitForSeconds(.5f);
+        rockSource.Pause();
+        rockSource.Stop();
+        rockSource.mute = true;
 
 	}
 }

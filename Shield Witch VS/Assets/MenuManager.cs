@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour {
 
@@ -10,6 +11,16 @@ public class MenuManager : MonoBehaviour {
     public GameObject mainMenuWiz;
     public GameObject someMenu;
 
+    public GameObject mainEvent;
+    public GameObject mainWizEvent;
+    public GameObject levelEvent;
+    public GameObject levelWizEvent;
+
+    public GameObject mainFirstSelected;
+    public GameObject mainWizFirst;
+    public GameObject levelFirst;
+    public GameObject levelWizFirst;
+
     public GameObject witchAnim;
     public GameObject wizardAnim;
 
@@ -18,6 +29,12 @@ public class MenuManager : MonoBehaviour {
         mainMenu.SetActive(true);
         mainMenuWiz.SetActive(false);
         otherMenu.SetActive(false);
+        someMenu.SetActive(false);
+
+        mainEvent.SetActive(true);
+        mainWizEvent.SetActive(false);
+        levelEvent.SetActive(false);
+        levelWizEvent.SetActive(false);
 
 
         wizardAnim.SetActive(false);
@@ -48,24 +65,46 @@ public class MenuManager : MonoBehaviour {
     {
         mainMenu.SetActive(false);
         otherMenu.SetActive(true);
-    }
+        //levelEvent.SetActive(true);
+
+        mainEvent.SetActive(false);
+        mainWizEvent.SetActive(false);
+        levelEvent.SetActive(true);
+        levelWizEvent.SetActive(false);
+}
 
     public void MenuLevelWiz()
     {
         mainMenuWiz.SetActive(false);
         someMenu.SetActive(true);
+       // levelWizEvent.SetActive(true);
+
+        mainEvent.SetActive(true);
+        mainWizEvent.SetActive(false);
+        levelEvent.SetActive(false);
+        levelWizEvent.SetActive(true);
     }
 
     public void ReturnToMenu()
     {
         mainMenu.SetActive(true);
         otherMenu.SetActive(false);
+
+        mainEvent.SetActive(true);
+        mainWizEvent.SetActive(false);
+        levelEvent.SetActive(false);
+        levelWizEvent.SetActive(false);
     }
 
     public void ReturnToMenuWiz()
     {
         mainMenuWiz.SetActive(true);
         someMenu.SetActive(false);
+
+        mainEvent.SetActive(false);
+        mainWizEvent.SetActive(true);
+        levelEvent.SetActive(false);
+        levelWizEvent.SetActive(false);
     }
 
     public void CharacterSelectWitch()
@@ -75,6 +114,11 @@ public class MenuManager : MonoBehaviour {
 
         mainMenu.SetActive(true);
         mainMenuWiz.SetActive(false);
+
+        mainEvent.SetActive(true);
+        mainWizEvent.SetActive(false);
+        levelEvent.SetActive(false);
+        levelWizEvent.SetActive(false);
 
         witchAnim.SetActive(true);
         wizardAnim.SetActive(false);
@@ -87,6 +131,11 @@ public class MenuManager : MonoBehaviour {
 
         mainMenuWiz.SetActive(true);
         mainMenu.SetActive(false);
+
+        mainEvent.SetActive(false);
+        mainWizEvent.SetActive(true);
+        levelEvent.SetActive(false);
+        levelWizEvent.SetActive(false);
 
         wizardAnim.SetActive(true);
         witchAnim.SetActive(false);

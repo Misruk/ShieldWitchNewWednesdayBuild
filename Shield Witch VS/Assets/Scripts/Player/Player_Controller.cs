@@ -24,8 +24,11 @@ public class Player_Controller : MonoBehaviour {
     public float baseJump = 300f;
     private bool facingRight = true;
 
+    public bool paused;
+
     private Rigidbody2D body2D;
     private Animator anim;
+    private BoxCollider2D boxcollider2D;
 
     private bool grounded = false;
     public Transform groundCheck;
@@ -58,6 +61,7 @@ public class Player_Controller : MonoBehaviour {
 		Debug.Log (SceneManager.GetActiveScene().name);
 		//LevelManager.setLastLevel (Application.loadedLevelName);
         body2D = GetComponent<Rigidbody2D>();
+        boxcollider2D = GetComponent<BoxCollider2D>();
 
 
         /*if(MenuManager.characterSelected == 0)
@@ -151,6 +155,17 @@ public class Player_Controller : MonoBehaviour {
     //In the update function it starts off with the Jump and goes into the players health.
     void Update()
     {
+
+        /*if (Input.GetButtonDown("Pause") && paused == false)
+        {
+            StartCoroutine(Pause());
+        }
+
+        else if(Input.GetButtonDown("Pause") && paused == true)
+        {
+            StopCoroutine(Pause());
+            StartCoroutine(Resume());
+        } */
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -250,13 +265,13 @@ public class Player_Controller : MonoBehaviour {
 			//killboxed = true;
 			//Debug.Log ("killbox initiating fadescript");
 			Debug.Log("should be winning");
-			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);	
-			fader.GetComponent<SceneFadeInOut> ().scenery = winscene;
+            //Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);	
+            fader.GetComponent<SceneFadeInOut> ().scenery = winscene;
 			//Debug.Log (fader.GetComponent<SceneFadeInOut> ().levelint);
 			fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
-			//fadescript.EndScene ();
-			//Win();
-		}
+            //fadescript.EndScene ();
+            //Win();
+        }
 		if (col.gameObject.tag == "Moving") {
 			hitGround = false;
 			hitMoving = true;
@@ -286,6 +301,7 @@ public class Player_Controller : MonoBehaviour {
 			damageSource.Play ();
             //curHealth--;
             StartCoroutine(Damage());
+            StartCoroutine(Hit());
             
         }
 
@@ -324,8 +340,18 @@ public class Player_Controller : MonoBehaviour {
 
     IEnumerator Damage()
     {
-        curHealth--;
-        yield return new WaitForSeconds(1.5f);
+        //yield return new WaitForSeconds(.5f);
+        if(curHealth > 0)
+        {
+            curHealth--;
+            anim.SetBool("Hit", true);
+        }
+        else if(curHealth <= 0)
+        {
+            anim.SetBool("Death", true);
+        }
+        yield return new WaitForSeconds(1f);
+        anim.SetBool("Hit", false);
     }
 
 
@@ -342,14 +368,22 @@ public class Player_Controller : MonoBehaviour {
         //Death Audio
         deathSource.clip = deathsound;
         deathSource.Play();
+        damageSource.Stop();
+
+        boxcollider2D.enabled = false;
 
         maxSpeed = 0f;
         jumpForce = 0f;
         anim.SetBool("Dead", true);
-		//fader.GetComponent<SceneFadeInOut> ().levelint = SceneManager.GetActiveScene ().buildIndex;
-		fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
 
-		yield return new WaitForSeconds(2f); //2f //1.1f
+        yield return new WaitForSeconds(1f);
+        deathSource.Stop();
+        //fader.GetComponent<SceneFadeInOut> ().levelint = SceneManager.GetActiveScene ().buildIndex;
+        fader.GetComponent<SceneFadeInOut> ().sceneEnding = true;
+
+		yield return new WaitForSeconds(1f); //2f //1.1f
+
+        //deathSource.Stop();
 
         //This needs to be updated in case they run out of lives?
         anim.SetBool("Dead", false);
@@ -400,4 +434,33 @@ public class Player_Controller : MonoBehaviour {
 		yield return new WaitForSeconds(1.5f);
 		text.CrossFadeAlpha(0.0f, 1.5f, false);
 	}
+
+
+    IEnumerator Pause()
+    {
+        paused = true;
+        //player.GetComponent<Player_Controller>().enabled = false;
+        player.GetComponent<ShieldPulse>().enabled = false;
+        player.GetComponent<PulseGenerator>().enabled = false;
+
+        yield return new WaitForSeconds(.025f);
+        //counter = 0;
+        //paused = false;
+        Time.timeScale = 0;
+
+    }
+
+    IEnumerator Resume()
+    {
+        paused = true;
+        //player.GetComponent<Player_Controller>().enabled = false;
+        player.GetComponent<ShieldPulse>().enabled = true;
+        player.GetComponent<PulseGenerator>().enabled = true;
+
+        yield return new WaitForSeconds(.025f);
+        //counter = 0;
+        //paused = false;
+        Time.timeScale = 1;
+
+    }
 }
