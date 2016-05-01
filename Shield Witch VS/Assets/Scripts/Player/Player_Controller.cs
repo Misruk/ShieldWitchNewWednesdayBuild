@@ -39,6 +39,9 @@ public class Player_Controller : MonoBehaviour {
     public int maxHealth = 3;
 	public int nextlevel;
 
+    private bool canBeHit = true;
+    private int hitCount = 0;
+
 	[Header("Audio")]
 	private AudioSource[] allAudioSources;
 	private AudioSource jumpSource;
@@ -242,14 +245,19 @@ public class Player_Controller : MonoBehaviour {
         //if an enemy bullet touches player, health decreases and bullet destroys
 		if (col.gameObject.tag == "Deadly")
         {
-            //Take damage audio
-			damageSource.clip = damagesound;
-			damageSource.Play ();
-            //curHealth--;
-            StartCoroutine(Damage());
-            StartCoroutine(Hit());
+            if(canBeHit == true)
+            {
+                //Take damage audio
+                canBeHit = false;
+                damageSource.clip = damagesound;
+                damageSource.Play();
+                //curHealth--;
+                StartCoroutine(Damage());
+                StartCoroutine(Hit());
 
-            //Destroy(col.gameObject);
+                //Destroy(col.gameObject);
+            }
+
         }
         if (col.gameObject.tag == "Killbox")
         {
@@ -289,19 +297,21 @@ public class Player_Controller : MonoBehaviour {
 
     }
 
-	void OnTriggerStay2D(Collider2D col){
-
-	}
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if(col.gameObject.tag == "Enemy" || col.gameObject.tag == "Deadly" || col.gameObject.tag == "BulletHold")
 		{
-			//Take damage audio
-			damageSource.clip = damagesound;
-			damageSource.Play ();
-            //curHealth--;
-            StartCoroutine(Damage());
-            StartCoroutine(Hit());
+            if(canBeHit == true)
+            {
+                //Take damage audio
+                canBeHit = false;
+                damageSource.clip = damagesound;
+                damageSource.Play();
+                //curHealth--;
+                StartCoroutine(Damage());
+                StartCoroutine(Hit());
+            }
+            
             
         }
 
@@ -330,13 +340,37 @@ public class Player_Controller : MonoBehaviour {
 			maxSpeed = 3;
 			jumpForce = 550;
 		}
-	}
+
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Deadly" || col.gameObject.tag == "BulletHold")
+        {
+            if(canBeHit == false)
+            {
+                //Take damage audio
+                canBeHit = true;
+                damageSource.clip = damagesound;
+                damageSource.Play();
+                //curHealth--;
+                StartCoroutine(Damage());
+                StartCoroutine(Hit());
+
+            }
+
+        }
+    }
 	void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.gameObject.tag == "Moving" || col.gameObject.tag == "MovingStrictCam") {
 			transform.parent = null;
 		}
-	}
+        if (col.gameObject.tag == "Deadly")
+        {
+            if(canBeHit == false)
+            {
+                canBeHit = true;
+            }
+        }
+
+    }
 
     IEnumerator Damage()
     {
@@ -352,6 +386,7 @@ public class Player_Controller : MonoBehaviour {
         }
         yield return new WaitForSeconds(1f);
         anim.SetBool("Hit", false);
+        canBeHit = true;
     }
 
 
