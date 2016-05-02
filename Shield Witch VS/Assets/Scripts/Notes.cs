@@ -96,6 +96,7 @@ public class Notes : MonoBehaviour {
 			player.GetComponent<Player_Controller> ().enabled = true;
 			player.GetComponent<ShieldPulse> ().enabled = true;
 			player.GetComponent<PulseGenerator> ().enabled = true;
+            player.GetComponent<Pause>().enabled = true;
 			//noteImage.enabled = false;
 			ready = false;
 			noteImage1.SetActive (false);
@@ -132,8 +133,9 @@ public class Notes : MonoBehaviour {
 		player.GetComponent<Player_Controller> ().enabled = false;
 		player.GetComponent<ShieldPulse> ().enabled = false;
 		player.GetComponent<PulseGenerator> ().enabled = false;
+        player.GetComponent<Pause>().enabled = false;
 
-		yield return new WaitForSeconds (.025f);
+        yield return new WaitForSeconds (.025f);
 		counter = 0;
 		ready = true;
 		Time.timeScale = 0;
