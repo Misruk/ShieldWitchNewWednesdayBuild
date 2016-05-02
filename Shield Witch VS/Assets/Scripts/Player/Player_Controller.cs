@@ -159,27 +159,27 @@ public class Player_Controller : MonoBehaviour {
     void Update()
     {
 
-        /*if (Input.GetButtonDown("Pause") && paused == false)
-        {
-            StartCoroutine(Pause());
-        }
+        /* if (Input.GetButtonDown("Pause") && paused == false)
+         {
+             StartCoroutine(Pause());
+         }
 
-        else if(Input.GetButtonDown("Pause") && paused == true)
-        {
-            StopCoroutine(Pause());
-            StartCoroutine(Resume());
-        } */
+         else if(Input.GetButtonDown("Pause") && paused == true)
+         {
+             StopCoroutine(Pause());
+             StartCoroutine(Resume());
+         } */
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             //Not a hard reset, but a reset none the less.
             body2D.transform.position = CheckPoint.GetActiveCheckPointPosition();
             curHealth = maxHealth;
             maxSpeed = baseSpeed;
             jumpForce = baseJump;
-        } 
+        } */
 
-		if(Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2"))
 		{
 			maxSpeed = 4;
 			baseJump = 550;
@@ -478,7 +478,7 @@ public class Player_Controller : MonoBehaviour {
         player.GetComponent<ShieldPulse>().enabled = false;
         player.GetComponent<PulseGenerator>().enabled = false;
 
-        yield return new WaitForSeconds(.025f);
+        yield return new WaitForSeconds(0f);
         //counter = 0;
         //paused = false;
         Time.timeScale = 0;
@@ -487,12 +487,12 @@ public class Player_Controller : MonoBehaviour {
 
     IEnumerator Resume()
     {
-        paused = true;
+        paused = false;
         //player.GetComponent<Player_Controller>().enabled = false;
         player.GetComponent<ShieldPulse>().enabled = true;
         player.GetComponent<PulseGenerator>().enabled = true;
 
-        yield return new WaitForSeconds(.025f);
+        yield return new WaitForSeconds(.0f);
         //counter = 0;
         //paused = false;
         Time.timeScale = 1;

@@ -129,6 +129,7 @@
     <Compile Include="Assets\Scripts\Old Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\Shoot.cs" />
+    <Compile Include="Assets\Scripts\Pause.cs" />
     <Compile Include="Assets\Scripts\Player\Glow.cs" />
     <Compile Include="Assets\Scripts\Player\MagicShield.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSelect.cs" />
